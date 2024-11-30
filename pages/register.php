@@ -19,17 +19,25 @@
             <option value="seller">Seller</option>
         </select>
         <button type="submit">Register</button>
-
+    </form>
+    <button onclick="window.location.href='sellerLogin.php'">Masuk Sebagai Seller</button>
+    <button onclick="window.location.href='buyerLogin.php'">Masuk Sebagai Buyer</button>
         <?php
             include '../includes/db.php';
             session_start();
             if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role'])){
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+                $password = md5($password);
                 $role = $_POST['role'];
                 $query = "INSERT INTO users (username, password, role) VALUES ('$username', '$password', '$role')";
                 if(mysqli_query($conn, $query)){
-                    echo 'Registrasi berhasil';
+                    $user_id = mysqli_insert_id($conn);
+                    if($role=='seller'){
+                        $squery = "INSERT INTO `sellers` (`seller_id`, `reputation`, `wanted`) VALUES ('$user_id', '0', '0')";
+                        mysqli_query($conn, $squery);
+                        echo 'Registrasi berhasil';
+                    }
                 } else {
                     echo 'Registrasi gagal';
                 }
