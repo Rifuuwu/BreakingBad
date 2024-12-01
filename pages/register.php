@@ -8,18 +8,41 @@
 <body>
     <h1>Registrasi disini</h1>
 
-    <form action="register.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <label for="role">Role</label>
-        <select name="role" id="role">
-            <option value="buyer">Buyer</option>
-            <option value="seller">Seller</option>
-        </select>
-        <button type="submit">Register</button>
-    </form>
+    <div class="judul">
+            <h1>Create New Account</h1>
+            <h2>What do you want to be called?</h2>
+        </div>
+        <div class="form-1">
+            <form action="register.php" method="post">
+                <div class="input">
+                    <div class="input-box">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="username">Password</label>
+                        <input type="text" name="password" id="password" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="username">Confirm Password</label>
+                        <input type="text" name="password" id="password" required>
+                    </div>
+                </div>
+                <div class="select">
+                    <label for="username">Role</label>
+                    <select name="role" id="role" placeholder="Role" required>
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller</option>
+                    </select>
+                </div>
+                <div class="btn-1">
+                <button type="submit">Create New Account</button>
+                </div>
+                <div class="btn-2">
+                    <button type="submit">Buyer Login</button>
+                    <button type="submit">Seller Login</button>
+                </div>
+        </div>
     <button onclick="window.location.href='sellerLogin.php'">Masuk Sebagai Seller</button>
     <button onclick="window.location.href='buyerLogin.php'">Masuk Sebagai Buyer</button>
         <?php

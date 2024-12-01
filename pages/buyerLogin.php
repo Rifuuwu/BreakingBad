@@ -10,16 +10,31 @@
     <title>MethMart - Buyer Login</title>
 </head>
 <body>
-    <h2>Buyer Login</h2>
-    <form action="buyerLogin.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <button type="submit">Login</button>
+<div class="judul">
+        <h1>Buyer Login</h1>
+        <h2>what do you want to sell today?</h2>
+    </div>
+    <div class="form-1">
+        <form action="buyerLogin.php" method="post">
+        <div class="input">
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+        </div>
+        <div class="btn-1">
+            <button type="submit">Login</button>
+        </div>
     </form>
-    <button onclick="window.location.href='sellerLogin.php'">Masuk Sebagai Seller</button>
-    <button onclick="window.location.href='register.php'">Buat Akun Baru</button>
+    <div class="btn-2">
+        <button onclick="window.location.href='sellerLogin.php'">Masuk Sebagai Seller</button>
+        <button onclick="window.location.href='register.php'">Buat Akun Baru</button>
+    </div>
+    </div>
 <?php 
     if(isset($_POST['username']) && isset($_POST['password'])){
         $username = $_POST['username'];
