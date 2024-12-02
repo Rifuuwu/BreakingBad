@@ -31,8 +31,8 @@
         </div>
     </form>
     <div class="btn-2">
-        <button onclick="window.location.href='buyerLogin.php'">Masuk Sebagai Buyer</button>
-        <button onclick="window.location.href='register.php'">Buat Akun Baru</button>
+        <button onclick="window.location.href='buyerLogin.php'">Login as Buyer</button>
+        <button onclick="window.location.href='register.php'">Register</button>
     </div>
     </div>
 <?php 
