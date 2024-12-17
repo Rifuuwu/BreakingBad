@@ -4,65 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Check Game</title>
-    <style>
-        img {
-            width: 300px;
-            height: 300px;
-            margin: 20px;
-            object-fit: contain;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin-top: 20px;
-        }
-        .progress-bar {
-            position: relative;
-            width: 300px;
-            height: 30px;
-            margin: 20px auto;
-            background-color: #ddd;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        .target-zone {
-            position: absolute;
-            height: 100%;
-            background-color: rgba(0, 255, 0, 0.5);
-            border: 2px solid green;
-            border-radius: 15px;
-            display: none; /* Tidak terlihat sebelum game dimulai */
-        }
-        .cursor {
-            position: absolute;
-            width: 10px;
-            height: 100%;
-            background-color: red;
-            left: 0;
-            border-radius: 5px;
-        }
-        .difficulty-buttons, .control-button {
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        #score-display {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/asset.css">
 </head>
 <body>
-    <div class="container">
+    <div class="admin">
         <h1>Let Him Cook!!!</h1>
         <p>What do you want to cook today?</p>
         <div class="difficulty-buttons">

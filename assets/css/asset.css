@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Gochi Hand');
+/* @import url('https://fonts.googleapis.com/css?family=Gochi Hand'); */
 
 :root {
     --color-main-1: #231b00;
@@ -22,6 +22,10 @@
     --color-neutral-3: #7d7f7f;
     --color-neutral-4: #aeb0b0;
 }
+@font-face {
+    font-family: 'Gochi Hand';
+    src: url(../fonts/GochiHand-Regular.ttf) format('truetype');
+}
 * {
     font-family: 'Gochi Hand';
     font-weight: 100;
@@ -30,11 +34,28 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    /* border: 1px solid black; */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
+    font-family: 'Gochi Hand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    /* overflow: hidden;  */
     background-color: var(--color-main-4);
-    display: grid;
+    /* display: grid; */
     grid-template-areas: "header"
                          "main"
                          "footer";
@@ -42,15 +63,24 @@ body {
     grid-column: 1fr;
 }
 header {
-    grid-area: header;
-    padding: 5px;
-    background-color: var(--color-main-1);
+    width: 100%;
+    height: 8%;
+    background-color: var(--color-main-2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 header .container {
+    width: 100%;
     display: flex;
     justify-content:space-around;
     align-items: center;
     gap: 200px;
+}
+header h1{
+    font-size: 50px;
+    color: var(--color-main-5);
 }
 header ul {
     display: flex;
@@ -68,48 +98,72 @@ header li a{
     color: var(--color-main-5);
 }
 footer {
-    background-color: var(--color-neutral-1);
-    grid-area: footer;
+    background-color: var(--color-main-1);
+    color: var(--color-neutral-1);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    border-top: 4px solid var(--color-main-3);
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--color-main-4);
     padding: 10px;
+    position: fixed;
+    bottom: 0;
 }
 main {
-    grid-area: main;
-    padding: 30px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;        /* Memenuhi lebar layar */
+    min-height: 100vh;      /* Memenuhi tinggi layar */
+    box-sizing: border-box; /* Padding tetap di dalam elemen */
+    margin: 0;          
+    padding-bottom: 20rem;
 }
-.product-list{
-    width: 920px;
+
+
+
+.product-list {
+    width: 100%;
+    max-width: 920px;
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-.product-card{
+.product-card {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 200px;
-    height: 380px;
+    height: auto;
     border: 4px solid var(--color-main-3);
     background-color: var(--color-main-5);
     border-radius: 10px;
+    overflow: hidden;
 }
-.product-card .img{
-    width: 192px;
-    height: 196px;
-    border-bottom: 10px solid var(--color-main-3);
+.product-card .img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    max-height: 100px; /* Adjust as needed */
 }
-.product-card .img img{
-    width: 192px;
-    height: 192px;
-    border-radius: 9px;
+.product-card .product-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Adjust as needed */
+    object-fit: contain;
+}
+.product-card h3, .product-card p {
+    margin: 5px 0;
+    text-align: center;
 }
 .product-card:hover{
     border: 4px solid var(--color-main-5);
@@ -145,14 +199,29 @@ main {
     color: var(--color-main-1);
 }
 .form-2 {
-    width: 420px;
+    width: 700px;
     padding: 0;
     border-radius: 5px;
-    color: var(--color-main-1);
+    color: var (--color-main-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 .input {
     margin: 12px 0;
 }
+.form-2 .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    justify-items: center;
+    width: 420px;
+}
+
+
 .input-box{
     width: 100%;
     height: 65px;
@@ -259,4 +328,232 @@ main {
     outline: none;
     border: 2px solid var(--color-main-2);
     background-color: var(--color-main-2);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 5rem;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--color-main-1);
+    border: 1px solid var(--color-main-3);
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: var(--color-main-3);
+    color: white;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Tidak mengganggu interaksi pengguna */
+}
+
+.content {
+    flex: 1;
+    padding-top : 5rem;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--color-main-1);
+    padding-top: 15rem;
+}
+
+.buyer-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--color-main-1);
+}
+
+.update{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.tombol{
+    background: var(--color-main-3);
+    color: var(--color-main-5);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-bottom: 5px;
+}
+button.tombol {
+    background-color: var(--color-main-2);
+    color: var(--color-main-5);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.tombol:hover {
+    background-color: var(--color-main-3);
+}
+
+.add-btn{
+    background-color: var(--color-main-2);
+    color: var(--color-main-5);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 10%;
+    position: fixed; 
+    bottom: 15%; 
+    right: 10%;
+}
+
+
+
+
+.details{
+    display: flex; /* Mengaktifkan flexbox */
+    flex-wrap: wrap; /* Responsif jika layar kecil */
+    gap: 20px; /* Jarak antar elemen */
+    align-items: flex-start; /* Align ke bagian atas */
+    margin: 20px; /* Tambahkan margin */
+    padding-top: 10rem;
+    width: 80%;
+    height: 80%;
+    border: 1px solid var(--color-main-3);
+    border-radius: 10px;
+    background-color: var(--color-main-5);
+}
+
+.details img{
+    width: 300px; /* Ukuran gambar */
+    max-width: 100%; /* Responsif agar tidak overflow */
+    height: auto;
+    border: 1px solid #ccc; /* Border opsional */
+    border-radius: 5px; /* Sudut melengkung */
+}
+
+.details-info{
+    flex: 1; /* Keterangan akan mengambil sisa ruang */
+    max-width: 500px; /* Maksimal lebar */
+}
+
+.details-info h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.details-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.details-form {
+    margin-top: 15px;
+}
+
+
+.details .about {
+    margin: 20px auto; /* Tengah secara horizontal */
+    padding: 20px;
+    border: 1px solid var(--color-main-3);
+    border-radius: 10px;
+    background-color: var(--color-main-4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    min-height: 200px;
+    max-width: 600px; /* Batasi lebar maksimum */
+    box-sizing: border-box;
+}
+
+
+
+.admin{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.admin img{
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    object-fit: contain;
+    border-radius: 15px;
+    
+}
+.admin .progress-bar{
+    position: relative;
+    width: 300px;
+    height: 30px;
+    margin: 20px auto;
+    background-color: var(--color-neutral-4);
+    border: 2px solid var(--color-second-1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+.admin .target-zone{
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-third-2);
+    border: 2px solid var(--color-second-1);
+    border-radius: 15px;
+    display: none; /* Tidak terlihat sebelum game dimulai */
+}
+.admin .cursor{
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: var(--color-main-4);
+    left: 0;
+    border: 1px solid var(--color-second-1);
+    border-radius: 5px;
+}
+.admin .difficulty-buttons, .control-button{
+    margin-top: 20px;
+}
+.admin button{
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    background: var(--color-neutral-1);
+    color: var(--color-main-5);
+    border: none;
+    outline: none;
+    border: 2px solid var(--color-main-1);
+    border-radius: 5px;
+}
+.admin #score-display{
+    margin-top: 20px;
+    font-size: 20px;
 }
